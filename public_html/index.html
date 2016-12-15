@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Livros</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                            </button> <a class="navbar-brand" href="index.html">TADS</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="#" id="listar_livros">Listar livros</a>
+                                </li>
+                                <li>
+                                    <a href="#" id="criar_testes">Criar testes</a>
+                                </li>
+                                <li>
+                                    <a href="#" id="limpar_dados">Limpar dados</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Opções<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#" data-toggle="modal" data-target="#formNovoLivro" id="menu_novo_livro">Criar livro</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle="modal" data-target="#formAlterarLivro" id="menu_alterar_livro">Alterar Livro</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle="modal" data-target="#formExcluirLivro" id="menu_excluir_livro">Excluir Livro</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success" id="mensagem">
+                        .
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                        <h2>
+                            Crud Javascript
+                        </h2>
+                        <p>
+                            Nesse exemplo vamos criar um CRUD simples usando apenas javascript!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row" id="row_livros">
+                    <div class="col-md-12">
+                        <h2>
+                            Livros
+                        </h2>
+                        <p>
+                        <ul id="livros"></ul>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="formNovoLivro" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Cadastrar novo livro</h4>
+                            </div>
+                            <div class="modal-body">
+                                Título: <input type="text" id="novo_nome_livro"/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" id="fechar_novo_livro">Criar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="formAlterarLivro" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Alterar livro</h4>
+                            </div>
+                            <div class="modal-body">
+                                Selecione o livro:
+                                <select id="select_alterar_livros" autofocus="true">
+                                </select>
+                                <br/><br/>
+                                Novo Título: <input type="text" id="alterar_nome_livro"/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" id="fechar_alterar_livro">Alterar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="formExcluirLivro" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Excluir livro</h4>
+                            </div>
+                            <div class="modal-body">
+                                Selecione o livro:
+                                <select id="select_excluir_livros" autofocus="true">
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" id="fechar_excluir_livro">Excluir</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/livros.js"></script>
+    </body>
+</html>
